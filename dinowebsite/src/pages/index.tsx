@@ -2,8 +2,6 @@ import type { NextPage } from "next";
 import Head from "next/head";
 import Image from 'next/image'
 
-import Button from "../components/button";
-
 const Home: NextPage = () => {
   return (
     <div>
@@ -24,7 +22,6 @@ const Home: NextPage = () => {
             />
           </div>
           {/* button with blue color*/}
-          <Button color="dinogreen" />
         </div>
       </div>
     </div>
