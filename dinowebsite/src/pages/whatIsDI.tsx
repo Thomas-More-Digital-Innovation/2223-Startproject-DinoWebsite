@@ -28,7 +28,7 @@ const whatIsDI: NextPage<ProjectCounterProps> = ({ projectAmountNumber }) => {
             About Digital Innovation
           </h1>
           <h2 className="font-heading pt-9 pb-3 text-2xl">What is DI ?</h2>
-          <p className="font-sans text-md sm:text-lg">
+          <p className="font-sans text-md sm:text-lg text-justify">
             Do you have a very broad interest in IT? And can you work well
             independently? Then Digital Innovation is for you. Instead of the
             traditional way of learning behind school desks, you will work in
