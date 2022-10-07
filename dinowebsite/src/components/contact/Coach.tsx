@@ -1,10 +1,10 @@
 import Image from "next/image";
 
 type MyProps = {
-    image: string,
-    name: string,
-    text: string,
-}
+  image: string;
+  name: string;
+  text: string;
+};
 
 export default function Coach(props: MyProps) {
   return (
@@ -14,10 +14,11 @@ export default function Coach(props: MyProps) {
         alt="dino"
         width={200}
         height={200}
+        className="rounded-lg"
       />
-      <div>
-        <p>{props.name}</p>
-        <p>{props.text}</p>
+      <div className="w-1/4">
+        <p className="font-sans text-2xl">{props.name}</p>
+        <p className="mt-3">{props.text}</p>
       </div>
     </div>
   );

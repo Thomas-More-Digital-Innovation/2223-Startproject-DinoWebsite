@@ -1,11 +1,11 @@
 import type { GetStaticProps, NextPage } from "next";
 import Head from "next/head";
 import Link from "next/link";
-import Coffee from "../components/Coffee";
 import Event from "../components/Event";
 import Project from "../components/Project";
 import { getAllProjectDataSorted, ProjectData } from "../modules/projects";
-import { EventData, getAllEventDataSorted } from "../modules/events"
+import { EventData, getAllEventDataSorted } from "../modules/events";
+
 
 interface PageData {
   allProjectsData: ProjectData[];
@@ -15,7 +15,6 @@ interface PageData {
 export const getStaticProps: GetStaticProps = async (context) => {
   const allProjectsData = await getAllProjectDataSorted();
   const allEventsData = await getAllEventDataSorted();
-
   return {
     props: {
       allProjectsData,
@@ -24,31 +23,30 @@ export const getStaticProps: GetStaticProps = async (context) => {
   };
 };
 
-const Home: NextPage<PageData> = ({ allProjectsData , allEventsData }) => {
+
+const Home: NextPage<PageData> = ({ allProjectsData, allEventsData }) => {
+  let amountOfFeaturedProjects = allProjectsData.filter(x => x.featured).length;
   return (
     <div>
       <Head>
-        <title>Dinowebsite - Home</title>
-        <meta name="description" content="Dinowebsite" />
-        <meta name="robots" content="noindex" />
-        <link rel="icon" href="/favicon.ico" />
+        <title>Digital Innovation - Home</title>
+        <meta name="description" content="Digital Innovation" />
+        <link rel="icon" href="images/LogoTextTransparant.png" />
       </Head>
 
       <main>
         <div className="bg-dinocream pb-28">
-          <div className="w-1/2 md:w-3/5 lg:w-3/6 xl:w-2/6 ml-20 lg:ml-60">
+          <div className="w-1/2 md:w-3/5 lg:w-3/6 xl:w-2/6 ml-20 lg:ml-60 3xl:pb-24">
             <h1 className="font-heading text-3xl sm:text-4xl pt-52 pb-5 text-dinoblack">
               Build shit, break shit, but ultimately, learn from the
               experiences!
             </h1>
-            <Link href="/">
+            <Link href="/whatIsDI">
               <a className="font-heading text-lg sm:text-xl rounded-full border-2 border-dinoblack px-5 py-1 hover:border-tmorange">
                 Learn More
               </a>
             </Link>
           </div>
-
-          <Coffee/>
 
           <div className="mt-32 md:mt-52 lg:mt-64 xl:mt-96 bg-[linear-gradient(9deg,_#191919_50%,_#f6f2e7_50%)]">
             <div className="bg-tmblue h-20 md:h-32 lg:h-40 xl:h-60 2xl:h-80 rotate-9 scale-125 shadow-glow"></div>
@@ -60,29 +58,17 @@ const Home: NextPage<PageData> = ({ allProjectsData , allEventsData }) => {
                 Upcoming events
               </h1>
 
-              <Event
-                image={allEventsData[0].image}
-                title="Title"
-                smalltext="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quis inventore iste earum hic consequatur ullam, iusto, accusamus quae assumenda, aliquam impedit dolore nam? Assumenda ad similique dolores ex, rem porro."
-                text="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quis inventore iste earum hic consequatur ullam, iusto, accusamus quae assumenda, aliquam impedit dolore nam? Assumenda ad similique dolores ex, rem porro.
-                      Corrupti voluptatum cum nam, minus a adipisci voluptates porro optio harum excepturi quae ad dicta placeat eum suscipit, fugiat culpa? Aliquam ut laborum ipsa ullam similique dolor voluptates voluptatum sit?
-                      Neque a, provident ab ut libero, doloremque dicta aliquam quos veniam tenetur quas id ipsa reiciendis ratione fugit beatae dolor, et perferendis hic deserunt error animi harum. Aliquid, nostrum porro?
-                      Amet possimus laborum magnam quibusdam doloribus odit, esse adipisci assumenda officiis rem harum, voluptas eaque alias libero iusto dicta molestiae? Molestiae laboriosam culpa ipsum, explicabo soluta eius quaerat quasi harum.
-                      Ab, praesentium illum. Delectus consequatur asperiores eligendi atque, nam voluptas quae neque voluptatibus ut quam dolore earum corporis, quo vero dolor deleniti inventore aperiam? Maxime nihil illo tempore soluta quam."
-                left={true}
-              />
-
-              <Event
-                image="/images/ThomasMore.png"
-                title="Title"
-                smalltext="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quis inventore iste earum hic consequatur ullam, iusto, accusamus quae assumenda, aliquam impedit dolore nam? Assumenda ad similique dolores ex, rem porro."
-                text="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quis inventore iste earum hic consequatur ullam, iusto, accusamus quae assumenda, aliquam impedit dolore nam? Assumenda ad similique dolores ex, rem porro.
-                      Corrupti voluptatum cum nam, minus a adipisci voluptates porro optio harum excepturi quae ad dicta placeat eum suscipit, fugiat culpa? Aliquam ut laborum ipsa ullam similique dolor voluptates voluptatum sit?
-
-                      Neque a, provident ab ut libero, doloremque dicta aliquam quos veniam tenetur quas id ipsa reiciendis ratione fugit beatae dolor, et perferendis hic deserunt error animi harum. Aliquid, nostrum porro?
-                      Amet possimus laborum magnam quibusdam doloribus odit, esse adipisci assumenda officiis rem harum, voluptas eaque alias libero iusto dicta molestiae? Molestiae laboriosam culpa ipsum, explicabo soluta eius quaerat quasi harum.
-                      Ab, praesentium illum. Delectus consequatur asperiores eligendi atque, nam voluptas quae neque voluptatibus ut quam dolore earum corporis, quo vero dolor deleniti inventore aperiam? Maxime nihil illo tempore soluta quam."
-              />
+              {allEventsData.map((event, i) => {
+                if (i < 2) {
+                  return (
+                    <Link href={`/events/${event.title}`} key={i}>
+                      <a>
+                        <Event eventData={event} left={i == 0 ? true : false} />
+                      </a>
+                    </Link>
+                  );
+                }
+              })}
             </div>
           </div>
 
@@ -94,22 +80,18 @@ const Home: NextPage<PageData> = ({ allProjectsData , allEventsData }) => {
                 Featured projects
               </h1>
 
-              <div className="flex flex-col lg:flex-row gap-6">
-                <Project
-                  image={allProjectsData[0].image}
-                  title={allProjectsData[0].title}
-                  text={allProjectsData[0].text}
-                />
-                <Project
-                  image={allProjectsData[1].image}
-                  title={allProjectsData[1].title}
-                  text={allProjectsData[1].text}
-                />
-                <Project
-                  image={allProjectsData[2].image}
-                  title={allProjectsData[2].title}
-                  text={allProjectsData[2].text}
-                />
+              <div className={`grid md:grid-cols-2 grid-cols-1 gap-6 ${amountOfFeaturedProjects <= 2  ? amountOfFeaturedProjects <= 1 ? "md:grid-cols-1" : "lg:grid-flow-col lg:auto-cols-fr lg:gap-20 xl:gap-52" : "lg:grid-cols-3 md:grid-cols-2"} `}>
+                {allProjectsData.map((project, i) => {
+                  if (project.featured) {
+                    return (
+                      <Link href={`/projects/${project.title}`} key={i}>
+                        <a>
+                          <Project projectData={project} />
+                        </a>
+                      </Link>
+                    );
+                  }
+                })}
               </div>
               <div className="w-full py-20 text-center">
                 <Link href="/projects">
@@ -121,7 +103,6 @@ const Home: NextPage<PageData> = ({ allProjectsData , allEventsData }) => {
             </div>
           </div>
         </div>
-
       </main>
     </div>
   );
