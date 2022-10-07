@@ -27,7 +27,7 @@ const Contact: NextPage = () => {
             Questions or proposals? Fill in the form below!
           </h1>
           <div className="flex">
-            <form action="/api/inquiry" method="POST" className="my-5 w-4/6">
+            <form action="https://test.jordi-paeshuijse8812.workers.dev/" method="POST" className="my-5 w-4/6">
               <div className="flex gap-5 my-3 w-full">
                 <input
                   type="text"
