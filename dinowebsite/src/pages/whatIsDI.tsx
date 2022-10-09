@@ -52,34 +52,35 @@ const whatIsDI: NextPage<ProjectCounterProps> = ({ projectAmountNumber }) => {
         <div className="bg-dinoblack text-dinocream pb-16 4xl:pb-32">
           <div className="">
             <div className="grid md:grid-cols-3 grid-cols-1 gap-6">
-            <ProjectCount projectAmountNumber={projectAmountNumber} />
-            <Coffee />
-            <div className="pt-36 text-center">
-              <div className="relative">
-                <div className="h-96">
-                  <Image
-                    src="/images/People3.png"
-                    alt="People"
-                    className="object-contain animate-[bounce3_1s_ease-in-out_infinite] z-0"
-                    layout="fill"
-                  />
-                  <Image
-                    src="/images/People2.png"
-                    alt="People"
-                    className="object-contain animate-[bounce2_1s_ease-in-out_infinite] z-0"
-                    layout="fill"
-                  />
-                  <Image
-                    src="/images/People1.png"
-                    alt="People"
-                    className="object-contain animate-bounce z-10"
-                    layout="fill"
-                  />
+              <ProjectCount projectAmountNumber={projectAmountNumber} />
+              <Coffee />
+              <div className="pt-36 text-center">
+                <div className="relative">
+                  <div className="h-96">
+                    <Image
+                      src="/images/People3.png"
+                      alt="People"
+                      className="object-contain animate-[bounce3_1s_ease-in-out_infinite] z-0"
+                      layout="fill"
+                    />
+                    <Image
+                      src="/images/People2.png"
+                      alt="People"
+                      className="object-contain animate-[bounce2_1s_ease-in-out_infinite] z-0"
+                      layout="fill"
+                    />
+                    <Image
+                      src="/images/People1.png"
+                      alt="People"
+                      className="object-contain animate-bounce z-10"
+                      layout="fill"
+                    />
+                  </div>
                 </div>
-                </div>
-              <h1 className="font-heading text-2xl sm:text-3xl pt-5 text-dinocream">
-                Digital Innovation consists of 16 students</h1>
-            </div>
+                <h1 className="font-heading text-2xl sm:text-3xl pt-5 text-dinocream">
+                  Digital Innovation consists of 16 students
+                </h1>
+              </div>
             </div>
 
             <h1 className="font-heading text-5xl pt-24 pb-10 md:pt-32 md:pb-16 lg:pt-44 lg:pb-20 xl:pt-64 xl:pb-24 text-center">

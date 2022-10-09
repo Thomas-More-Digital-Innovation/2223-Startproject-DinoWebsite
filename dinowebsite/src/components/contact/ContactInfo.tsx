@@ -38,7 +38,10 @@ export default function ContactInfo() {
         </div>
         <div>
           <p>TM phone number</p>
-          <a href="tel:+3214562310" className="underline text-tmorange dark:text-coffeecream">
+          <a
+            href="tel:+3214562310"
+            className="underline text-tmorange dark:text-coffeecream"
+          >
             +32 14 56 23 10
           </a>
         </div>

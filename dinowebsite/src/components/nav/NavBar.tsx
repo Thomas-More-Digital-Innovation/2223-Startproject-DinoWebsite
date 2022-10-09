@@ -5,7 +5,6 @@ import { Icon } from "@iconify/react";
 import { useEffect, useState } from "react";
 
 const NavBar = () => {
-
   const [mobileNav, setMobileNav] = useState(false);
 
   function toggleMobile() {
@@ -13,23 +12,19 @@ const NavBar = () => {
   }
 
   useEffect(() => {
- 
-
     function coffeemode() {
       const queryString = window.location.search;
       const urlParams = new URLSearchParams(queryString);
-      const coffeemode = urlParams.has('coffeemode')
+      const coffeemode = urlParams.has("coffeemode");
       console.log(coffeemode);
 
       if (coffeemode) {
-        document.getElementById("coffeemodeNav")?.classList.add('dark')
+        document.getElementById("coffeemodeNav")?.classList.add("dark");
+      } else {
+        document.getElementById("coffeemodeNav")?.classList.remove("dark");
       }
-      else{
-        document.getElementById("coffeemodeNav")?.classList.remove('dark')
-      }
-
     }
-    coffeemode()
+    coffeemode();
   }, []);
 
   return (
@@ -37,7 +32,7 @@ const NavBar = () => {
       <div className="max-w-screen mx-auto pl-10 sm:px-16 lg:px-28">
         <div className="flex justify-between">
           <div className="flex items-center space-x-1">
-            <Link href="/">
+            <Link href="/gameMode/game">
               <a className="lg:ml-24 py-6 px-11 bg-dinoblack shadow-glow">
                 <Image
                   src="/images/LogoTextTransparant.png"

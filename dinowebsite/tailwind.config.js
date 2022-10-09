@@ -41,16 +41,16 @@ module.exports = {
           "50%": { transform: "rotate(3deg)" },
         },
         bounce: {
-          "0%, 100%": {transform: "translateY(-5%)"},
-          "50%": {transform: "translateY(0)"}
+          "0%, 100%": { transform: "translateY(-5%)" },
+          "50%": { transform: "translateY(0)" },
         },
         bounce2: {
-          "0%, 100%": {transform: "translateY(-2%)"},
-          "50%": {transform: "translateY(0)"}
+          "0%, 100%": { transform: "translateY(-2%)" },
+          "50%": { transform: "translateY(0)" },
         },
         bounce3: {
-          "0%, 100%": {transform: "translateY(-4%)"},
-          "50%": {transform: "translateY(0)"}
+          "0%, 100%": { transform: "translateY(-4%)" },
+          "50%": { transform: "translateY(0)" },
         },
       },
       animation: {
@@ -62,8 +62,8 @@ module.exports = {
         "spin-slow": "spin 4s linear infinite",
       },
       screens: {
-        '3xl': '2565px',
-        '4xl': '3450px',
+        "3xl": "2565px",
+        "4xl": "3450px",
         // => @media (min-width: 1536px) { ... }
       },
     },
