@@ -18,7 +18,7 @@ const NavBar = () => {
       <div className="max-w-screen mx-auto pl-10 sm:px-16 lg:px-28">
         <div className="flex justify-between">
           <div className="flex items-center space-x-1">
-            <Link href="/">
+            <Link href="/space">
               <a className="lg:ml-24 py-6 px-11 bg-dinoblack shadow-glow">
                 <Image
                   src="/images/LogoTextTransparant.png"
